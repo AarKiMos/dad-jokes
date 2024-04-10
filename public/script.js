@@ -12,7 +12,7 @@ async function getJokes(event) {
 
   mainContainer.innerHTML = "";
 
-  // document.querySelector("#result-count").innerText = `Showing ${jokes.} ;
+  // document.querySelector("#result-count").innerText = `Showing ${jokes.} jokes`
 
   jokes.results.forEach((joke) => {
     const joke_id = joke.id;
@@ -50,17 +50,6 @@ async function saveJoke(event) {
       joke_id: event.target.dataset.joke_id,
     }),
   });
-}
-
-async function deleteJoke(event) {
-  console.log(event.target.dataset.joke_id);
-
-  const response = await fetch(
-    `/api/v1/jokes/saved/${event.target.dataset.joke_id}`,
-    {
-      method: "DELETE",
-    }
-  );
 }
 
 const alertPlaceholder = document.getElementById("liveAlertPlaceholder");
